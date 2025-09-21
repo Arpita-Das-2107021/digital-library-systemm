@@ -17,6 +17,7 @@ public class Proxy{
 interface Ebook{
     void display();
     String getTitle();
+    int getSize();
 }
 class RealEbook implements Ebook{
     private String filename;
@@ -31,8 +32,13 @@ class RealEbook implements Ebook{
     public void display(){
         System.out.println("File is "+filename);
     }
+
     public String getTitle(){
         return filename;
+    }
+
+    public int getSize(){
+        return 5;
     }
 }
 class ProxyEbook implements Ebook{
@@ -47,7 +53,11 @@ class ProxyEbook implements Ebook{
         }
         realEbook.display();
     }
+
     public String getTitle(){
         return filename;
+    }
+    public int getSize(){
+        return 5;
     }
 }
